@@ -1,13 +1,35 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "../node_modules/shadcn/dist/tailwind.css";
+
+/* PrimeGlass Design System — same palette & structure as our sibling site, FreshFront,
+   with its own type voice (Plus Jakarta Sans / Inter) and a coral accent reserved
+   for the "Prime" wordmark. */
+@theme inline {
+  --color-pg-primary: #0891b2;
+  --color-pg-primary-dark: #0c4a6e;
+  --color-pg-primary-light: #cffafe;
+  --color-pg-secondary: #22d3ee;
+  --color-pg-cta: #16a34a;
+  --color-pg-cta-hover: #15803d;
+  --color-pg-bg: #ecfeff;
+  --color-pg-dark: #0f172a;
+  --color-pg-dark-card: #1e293b;
+  --color-pg-text: #0c4a6e;
+  --color-pg-muted: #64748b;
+  --color-pg-coral: #ff5a5f;
+  --color-pg-ink: #071a2b;
+  --color-pg-surface: #f7fcfd;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -48,6 +70,7 @@
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -119,10 +142,207 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   body {
-    @apply bg-background text-foreground;
-    @apply bg-background text-foreground;
+    @apply bg-white text-slate-800 antialiased;
+    font-family: var(--font-body);
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  a,
+  button,
+  [role="slider"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgb(8 145 178 / 14%);
+  }
+  :where(a, button, input, select, textarea, [role="slider"]):focus-visible {
+    outline: 3px solid #22d3ee;
+    outline-offset: 3px;
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+  ::selection {
+    background: rgb(34 211 238 / 30%);
+    color: #0c4a6e;
+  }
+}
+
+@layer components {
+  .pg-container {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .pg-section {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  .pg-section-header {
+    @apply mb-10 text-center sm:mb-14 lg:mb-16;
+  }
+
+  .pg-eyebrow {
+    @apply mb-4 inline-flex min-h-7 items-center rounded-full border border-pg-primary/15 bg-pg-primary/8 px-3 py-1 font-bold text-[0.6875rem] text-pg-primary uppercase tracking-[0.18em] sm:text-xs;
+  }
+
+  .pg-heading {
+    color: var(--color-pg-primary-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .pg-lede {
+    @apply mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8;
+  }
+
+  .pg-card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgb(15_23_42/0.04),0_12px_36px_rgb(15_23_42/0.05)] transition-[transform,border-color,box-shadow] duration-300;
+  }
+
+  .pg-card:hover {
+    @apply -translate-y-1 border-pg-primary/25 shadow-[0_18px_50px_rgb(8_145_178/0.12)];
+  }
+
+  .pg-button-primary {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-xl bg-pg-cta px-6 py-3 font-bold text-white shadow-[0_10px_25px_rgb(22_163_74/0.2)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-pg-cta-hover hover:shadow-[0_14px_34px_rgb(22_163_74/0.28)] active:translate-y-0;
+  }
+
+  .pg-button-secondary {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-6 py-3 font-semibold text-white transition-[background-color,border-color,color] duration-200 hover:border-white/60 hover:bg-white/12;
+  }
+
+  .pg-field {
+    @apply min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-base text-slate-900 shadow-sm transition-[border-color,box-shadow] placeholder:text-slate-400 focus-visible:border-pg-primary;
+  }
+
+  .pg-dark-grid {
+    background-color: var(--color-pg-ink);
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0891b2 60%, #0e7490 100%);
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+      animation: none;
+    }
+  }
+}
+
+/* Ensure content is visible when JS is disabled (motion/react hides via inline style) */
+@media (scripting: none) {
+  [style*="opacity: 0"],
+  [style*="opacity:0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.skip-to-content {
+  position: fixed;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 9999;
+  background: #0c4a6e;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgb(15 23 42 / 25%);
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-to-content:focus-visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* AI-photo treatment for the "before" side of comparison sliders. */
+.pg-grime {
+  pointer-events: none;
+}
+
+.pg-grime img {
+  filter: brightness(0.62) contrast(0.88) saturate(0.55) sepia(0.18);
+  transform: scale(1.012);
+}
+
+.pg-grime::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 25%, rgb(90 82 64 / 38%) 0%, transparent 34%),
+    radial-gradient(circle at 66% 62%, rgb(74 70 59 / 34%) 0%, transparent 42%),
+    radial-gradient(circle at 42% 85%, rgb(105 94 73 / 26%) 0%, transparent 30%),
+    linear-gradient(115deg, rgb(70 68 60 / 14%), rgb(128 119 94 / 34%));
+  content: "";
+  mix-blend-mode: multiply;
+}
+
+.pg-clean {
+  position: relative;
+  overflow: hidden;
+}
+
+.pg-clean::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 24%);
+  content: "";
+  pointer-events: none;
 }
