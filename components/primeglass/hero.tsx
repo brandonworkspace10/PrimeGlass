@@ -2,7 +2,6 @@
 
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Image from "next/image";
 
 const TRUST_POINTS = [
   "Interior & exterior service",
@@ -18,48 +17,6 @@ const BUSINESS_TYPES = [
   "Commercial Buildings",
   "Managed Properties",
 ];
-
-function GlassFacade() {
-  return (
-    <div className="relative mx-auto w-full max-w-[29rem] rotate-[1.5deg]">
-      <div className="absolute -inset-8 rounded-full bg-cyan-300/20 blur-3xl" />
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/25 bg-white/10 p-3 shadow-[0_35px_100px_rgb(3_36_55/0.35)] backdrop-blur-md">
-        <div className="mb-3 flex items-center justify-between px-2 py-1">
-          <span className="font-bold text-[0.65rem] text-white/60 uppercase tracking-[0.22em]">
-            PrimeGlass / NYC
-          </span>
-          <span className="flex items-center gap-1.5 text-[0.65rem] text-white/55">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgb(74_222_128)]" />
-            Representative image
-          </span>
-        </div>
-        <div className="relative aspect-[3/4] overflow-hidden rounded-[1.35rem] bg-slate-950/45">
-          <Image
-            alt="Professional window cleaner using a squeegee on a large commercial glass façade"
-            className="object-cover"
-            fill
-            priority
-            sizes="(min-width: 1280px) 29rem, 36vw"
-            src="/images/primeglass-hero-window-cleaner.png"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-white/5"
-          />
-        </div>
-      </div>
-      <div className="absolute -right-5 -bottom-5 rounded-2xl border border-white/30 bg-white px-4 py-3 shadow-2xl sm:-right-8 sm:px-5">
-        <p className="font-bold text-[0.65rem] text-slate-400 uppercase tracking-[0.16em]">
-          Service scope
-        </p>
-        <p className="mt-1 flex items-center gap-2 font-bold text-pg-primary-dark text-sm">
-          <CheckCircle2 aria-hidden="true" className="h-4 w-4 text-pg-cta" />
-          Interior + exterior
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -91,8 +48,7 @@ export function Hero() {
       />
 
       <div className="pg-container relative pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-12">
-        <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.72fr)] lg:gap-10 xl:gap-20">
-          <div className="max-w-3xl">
+        <div className="max-w-3xl">
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             className="mb-6 inline-flex min-h-9 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 font-bold text-white/90 text-xs tracking-wide backdrop-blur-sm sm:px-4 sm:text-sm"
@@ -173,20 +129,6 @@ export function Hero() {
                 <span style={{ fontFamily: "var(--font-body)" }}>{point}</span>
               </div>
             ))}
-          </motion.div>
-          </div>
-
-          <motion.div
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="hidden lg:block"
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 24 }}
-            transition={{
-              duration: reduceMotion ? 0 : 0.75,
-              delay: reduceMotion ? 0 : 0.35,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <GlassFacade />
           </motion.div>
         </div>
 
