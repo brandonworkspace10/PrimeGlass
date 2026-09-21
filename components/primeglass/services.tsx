@@ -75,14 +75,15 @@ export function Services() {
         <FadeIn>
           <div className="pg-section-header">
             <span className="pg-eyebrow">
-              Services
+              What we clean
             </span>
             <h2 className="pg-heading">
-              Window cleaning for
-              <br className="hidden sm:block" /> every commercial property
+              One plan covers every
+              <br className="hidden sm:block" /> pane on your property
             </h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-              One focused service, adapted to the size, shape, height, and access of your glass.
+              Storefront glass, office windows, oversized façades, and custom shapes all scoped
+              into the same recurring visit.
             </p>
           </div>
         </FadeIn>
@@ -130,9 +131,9 @@ export function Services() {
 
         <FadeIn delay={0.4}>
           <p className="mt-10 text-center text-slate-500 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-            Not sure how to describe your windows?{" "}
-            <a className="cursor-pointer font-medium text-pg-primary underline underline-offset-2 hover:text-pg-primary-dark" href="#quote">
-              Send the property details
+            Not sure how often you need us?{" "}
+            <a className="cursor-pointer font-medium text-pg-primary underline underline-offset-2 hover:text-pg-primary-dark" href="#visit-plan">
+              Check your visit frequency
             </a>
           </p>
         </FadeIn>

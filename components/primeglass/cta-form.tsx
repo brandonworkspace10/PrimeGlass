@@ -1,9 +1,53 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, CalendarClock, CheckCircle2, Loader2 } from "lucide-react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useForm } from "react-hook-form";
+import { type StoredVisitPlan, VISIT_PLAN_STORAGE_KEY } from "@/lib/visit-frequency";
 import { FadeIn } from "./fade-in";
+
+/** Maps a planner cadence back onto the service options above. */
+const CADENCE_TO_SERVICE: Record<string, string> = {
+  "Twice a week": "recurring-twice-weekly",
+  "Once a week": "recurring-weekly",
+  "Every other week": "recurring-biweekly",
+  "Once a month": "recurring-monthly",
+};
+
+// The visit planner hands its recommendation over through sessionStorage. Snapshots are cached
+// so useSyncExternalStore keeps seeing a stable reference between renders.
+let cachedPlanJson: string | null = null;
+let cachedPlan: StoredVisitPlan | null = null;
+
+function subscribeToVisitPlan() {
+  return () => {
+    // The value is written before navigation, so there is nothing to unsubscribe from.
+  };
+}
+
+function readVisitPlan(): StoredVisitPlan | null {
+  let raw: string | null = null;
+  try {
+    raw = sessionStorage.getItem(VISIT_PLAN_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+
+  if (raw !== cachedPlanJson) {
+    cachedPlanJson = raw;
+    try {
+      cachedPlan = raw ? (JSON.parse(raw) as StoredVisitPlan) : null;
+    } catch {
+      cachedPlan = null;
+    }
+  }
+
+  return cachedPlan;
+}
+
+function readVisitPlanOnServer(): StoredVisitPlan | null {
+  return null;
+}
 
 const BOROUGHS = ["Manhattan", "Brooklyn", "Queens", "The Bronx", "Staten Island"];
 
@@ -25,12 +69,12 @@ const SIZES = [
 ];
 
 const SERVICES_NEEDED = [
-  { value: "one-time", label: "One-time window cleaning" },
-  { value: "recurring", label: "Recurring window cleaning" },
-  { value: "interior-exterior", label: "Interior & exterior window cleaning" },
-  { value: "high-access", label: "High or hard-to-reach windows" },
-  { value: "custom-glass", label: "Custom-shaped or specialty glass" },
-  { value: "not-sure", label: "Not sure — help me scope it" },
+  { value: "recurring-weekly", label: "Recurring plan — weekly" },
+  { value: "recurring-biweekly", label: "Recurring plan — every other week" },
+  { value: "recurring-twice-weekly", label: "Recurring plan — twice a week" },
+  { value: "recurring-monthly", label: "Recurring plan — monthly" },
+  { value: "not-sure", label: "Recommend a frequency for me" },
+  { value: "one-time", label: "One-time cleaning" },
 ];
 
 interface QuoteForm {
@@ -46,12 +90,26 @@ interface QuoteForm {
 
 export function CtaForm() {
   const [submitted, setSubmitted] = useState(false);
+  const plannedVisit = useSyncExternalStore(
+    subscribeToVisitPlan,
+    readVisitPlan,
+    readVisitPlanOnServer,
+  );
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<QuoteForm>();
+
+  // Preselect the frequency the visitor picked in the planner.
+  useEffect(() => {
+    const service = plannedVisit?.cadenceLabel
+      ? CADENCE_TO_SERVICE[plannedVisit.cadenceLabel]
+      : undefined;
+    if (service) setValue("service", service);
+  }, [plannedVisit, setValue]);
 
   const onSubmit = async () => {
     // TODO: wire this up to a backend before launch — e.g. an API route that
@@ -83,20 +141,20 @@ export function CtaForm() {
           <FadeIn>
             <div className="mb-10 text-center sm:mb-12">
               <span className="pg-eyebrow border-white/20 bg-white/10 text-cyan-50">
-                Get a quote
+                Get your plan
               </span>
               <h2
                 className="text-[clamp(2rem,5vw,3.5rem)] text-white leading-[1.05] tracking-[-0.04em]"
                 style={{ fontFamily: "var(--font-heading)", fontWeight: 800 }}
               >
-                Tell us about your windows
+                Start your cleaning plan
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base text-cyan-50/90 leading-7 sm:text-lg" style={{ fontFamily: "var(--font-body)" }}>
-                Share the property type, approximate window count, size, shape, access, and
-                preferred schedule so we can prepare the right scope.
+                Tell us about the property and we&rsquo;ll come back with the glass included, the
+                recommended visit frequency, and a price for that plan.
               </p>
               <p className="mt-2 text-sm text-white/60 italic" style={{ fontFamily: "var(--font-body)" }}>
-                Photos and access notes are helpful for large or unusual glass.
+                Free to request, and it doesn&rsquo;t commit you to a schedule.
               </p>
             </div>
           </FadeIn>
@@ -112,11 +170,11 @@ export function CtaForm() {
                   <CheckCircle2 aria-hidden="true" className="h-8 w-8 text-pg-cta" />
                 </div>
                 <h3 className="mb-2 font-bold text-slate-900 text-xl" style={{ fontFamily: "var(--font-heading)" }}>
-                  Quote request received
+                  Plan request received
                 </h3>
                 <p className="mx-auto max-w-sm text-slate-500 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-                  Thanks for sharing the property details. The next step is reviewing the glass,
-                  access, and requested frequency.
+                  Thanks for the property details. Next we review the glass, the access, and the
+                  frequency, then send back your plan and price.
                 </p>
                 <p className="mt-4 font-medium text-pg-primary text-sm" style={{ fontFamily: "var(--font-body)" }}>
                   — The PrimeGlass Team
@@ -129,6 +187,21 @@ export function CtaForm() {
                 noValidate
                 onSubmit={handleSubmit(onSubmit)}
               >
+                {plannedVisit && (
+                  <div className="mb-5 flex items-start gap-3 rounded-xl border border-pg-primary/20 bg-pg-bg p-4">
+                    <CalendarClock
+                      aria-hidden="true"
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-pg-primary"
+                    />
+                    <p className="text-slate-600 text-sm leading-6" style={{ fontFamily: "var(--font-body)" }}>
+                      <span className="font-bold text-pg-primary-dark">
+                        {plannedVisit.cadenceLabel} ({plannedVisit.visitsPerMonth} visits a month)
+                      </span>{" "}
+                      is your recommended starting plan for a {plannedVisit.propertyLabel.toLowerCase()}.
+                      We&rsquo;ve selected it below — change it any time.
+                    </p>
+                  </div>
+                )}
                 <p className="mb-5 text-slate-500 text-xs">
                   Required fields are marked <span aria-hidden="true">*</span>
                 </p>
@@ -206,7 +279,7 @@ export function CtaForm() {
 
                   <div className="flex flex-col gap-1.5">
                     <label className="font-semibold text-slate-700 text-sm" htmlFor="service" style={{ fontFamily: "var(--font-heading)" }}>
-                      Service needed <span aria-hidden="true" className="text-red-600">*</span>
+                      How often? <span aria-hidden="true" className="text-red-600">*</span>
                     </label>
                     <select
                       aria-describedby={errors.service ? "service-error" : undefined}
@@ -344,7 +417,7 @@ export function CtaForm() {
                     </>
                   ) : (
                     <>
-                      Request My Window Cleaning Quote
+                      Get My Free Cleaning Plan
                       <ArrowRight aria-hidden="true" className="h-4 w-4" />
                     </>
                   )}

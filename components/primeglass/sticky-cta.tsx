@@ -26,10 +26,10 @@ export function StickyCta() {
         <div className="pg-container flex items-center justify-between gap-3 px-0 sm:px-0 lg:px-0">
           <div className="hidden sm:block">
             <p className="font-semibold text-sm text-white" style={{ fontFamily: "var(--font-heading)" }}>
-              Need cleaner windows?
+              Put your windows on a schedule
             </p>
             <p className="text-cyan-200 text-xs" style={{ fontFamily: "var(--font-body)" }}>
-              Tell us about the size, shape, and access.
+              Free plan, no commitment to a schedule.
             </p>
           </div>
           <div className="flex w-full items-center gap-2 sm:w-auto">
@@ -38,7 +38,7 @@ export function StickyCta() {
               href="#quote"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Get My Window Cleaning Quote
+              Get My Free Cleaning Plan
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </a>
           </div>

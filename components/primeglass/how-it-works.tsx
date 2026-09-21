@@ -5,20 +5,20 @@ const STEPS = [
   {
     number: "1",
     icon: ClipboardList,
-    title: "Share the property details",
-    body: "Tell us the property type, window count, sizes, shapes, access conditions, and preferred frequency. Photos help.",
+    title: "Tell us about the property",
+    body: "Property type, window count, sizes, shapes, and access. Photos help, but they are not required to get started.",
   },
   {
     number: "2",
     icon: ScanSearch,
-    title: "Receive a clear service scope",
-    body: "Your quote defines which windows are included, interior and exterior work, access needs, and service frequency.",
+    title: "Get a scope and a visit frequency",
+    body: "We confirm which glass is included, interior and exterior work, and how often your property needs a visit.",
   },
   {
     number: "3",
     icon: CalendarCheck,
-    title: "Choose the right schedule",
-    body: "Book a one-time cleaning or set a recurring plan based on traffic, exposure, and the needs of your property.",
+    title: "Your visits repeat on schedule",
+    body: "Same scope, same rhythm, no rebooking. Tell us if the property changes and we re-scope the plan.",
   },
 ];
 
@@ -32,10 +32,10 @@ export function HowItWorks() {
               How it works
             </span>
             <h2 className="pg-heading">
-              From property details to a clear scope
+              Three steps to glass you stop thinking about
             </h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-              A better quote starts with the size, shape, access, and condition of your windows.
+              Set the scope once, then the schedule does the remembering for you.
             </p>
           </div>
         </FadeIn>
@@ -81,10 +81,10 @@ export function HowItWorks() {
               href="#quote"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Request My Window Cleaning Quote
+              Get My Free Cleaning Plan
             </a>
             <p className="mt-3 text-slate-400 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-              Share photos when available for a more accurate scope.
+              Requesting a plan is free and doesn&rsquo;t commit you to a schedule.
             </p>
           </div>
         </FadeIn>

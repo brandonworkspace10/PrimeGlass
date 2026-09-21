@@ -180,7 +180,7 @@ export function BeforeAfterGallery() {
               See the difference
             </span>
             <h2 className="pg-heading">
-              Clear glass changes the whole view
+              The difference customers notice from the sidewalk
             </h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
               Use the sliders to explore AI-generated clean and dirty glass visualizations. They
@@ -208,7 +208,7 @@ export function BeforeAfterGallery() {
               href="#quote"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Get a Quote for My Windows
+              Get My Free Cleaning Plan
             </a>
           </div>
         </FadeIn>

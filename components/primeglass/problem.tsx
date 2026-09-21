@@ -1,21 +1,21 @@
-import { CalendarClock, Maximize2, Shapes } from "lucide-react";
+import { CalendarX, CloudDrizzle, RefreshCcw } from "lucide-react";
 import { FadeIn } from "./fade-in";
 
 const PAIN_POINTS = [
   {
-    icon: Shapes,
-    title: "Not every pane is standard",
-    body: "Custom shapes, divided windows, doors, and specialty glass need a scope that reflects how the property is actually built.",
+    icon: CloudDrizzle,
+    title: "Your glass looks dirty again in days",
+    body: "Exhaust, rain spray, salt, and handprints rebuild on street-level glass fast. A single cleaning stops looking clean long before anyone books the next one.",
   },
   {
-    icon: Maximize2,
-    title: "Size and access change the job",
-    body: "Oversized, elevated, or obstructed windows require more planning than street-level glass with open access.",
+    icon: CalendarX,
+    title: "One-off cleanings keep getting postponed",
+    body: "Nobody on your team owns the calendar. Window cleaning slides down the list until the glass is bad enough for a customer to comment on it.",
   },
   {
-    icon: CalendarClock,
-    title: "The right frequency is property-specific",
-    body: "Street exposure, foot traffic, weather, and operating hours all affect how often commercial glass should be cleaned.",
+    icon: RefreshCcw,
+    title: "Every booking restarts the whole process",
+    body: "New quote, new scheduling, another walkthrough of the property. A standing plan settles the scope once and then repeats it.",
   },
 ];
 
@@ -35,19 +35,19 @@ export function Problem() {
         <FadeIn>
           <div className="mb-4">
             <span className="inline-block rounded-full border border-red-700/30 bg-red-900/40 px-3 py-1 font-semibold text-red-400 text-xs uppercase tracking-widest">
-              Why planning matters
+              What dirty glass costs you
             </span>
           </div>
           <h2
             className="mb-5 max-w-3xl text-[clamp(2rem,5vw,3.75rem)] text-white leading-[1.05] tracking-[-0.04em]"
             style={{ fontFamily: "var(--font-heading)", fontWeight: 800 }}
           >
-            Your windows are different.
-            <span className="text-pg-secondary"> Your cleaning plan should be too.</span>
+            Customers judge your glass
+            <span className="text-pg-secondary"> before they reach your door.</span>
           </h2>
           <p className="mb-10 max-w-2xl text-base text-slate-300 leading-7 sm:mb-14 sm:text-lg" style={{ fontFamily: "var(--font-body)" }}>
-            PrimeGlass scopes commercial window cleaning around the glass itself—its size, shape,
-            height, condition, and access.
+            A one-off cleaning fixes today. A schedule fixes the whole month, which is why most
+            NYC storefronts end up on a recurring plan.
           </p>
         </FadeIn>
 
@@ -78,14 +78,15 @@ export function Problem() {
         <FadeIn delay={0.4}>
           <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-2xl border border-pg-secondary/20 bg-pg-primary/10 p-5 sm:mt-12 sm:flex-row sm:items-center sm:p-6">
             <p className="text-base text-slate-300" style={{ fontFamily: "var(--font-body)" }}>
-              <span className="font-semibold text-pg-secondary">Start with the property.</span>{" "}
-              Share the window count, dimensions, shapes, access notes, and photos when available.
+              <span className="font-semibold text-pg-secondary">Put it on a schedule.</span>{" "}
+              Answer four questions and we&rsquo;ll recommend how often your property needs a
+              visit.
             </p>
             <a
               className="inline-flex min-h-11 flex-shrink-0 cursor-pointer items-center gap-2 whitespace-nowrap font-bold text-pg-secondary text-sm transition-colors hover:text-white"
-              href="#how-it-works"
+              href="#visit-plan"
             >
-              See how quoting works →
+              See my visit frequency →
             </a>
           </div>
         </FadeIn>

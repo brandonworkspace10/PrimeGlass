@@ -1,4 +1,4 @@
-import { Building2, CalendarDays, PanelsTopLeft, Ruler, Route, Shapes } from "lucide-react";
+import { CalendarDays, Clock, PanelsTopLeft, Repeat, Ruler, Shapes } from "lucide-react";
 import { FadeIn } from "./fade-in";
 
 const BADGES = [
@@ -24,25 +24,25 @@ const BADGES = [
     body: "Scope both sides of the glass, plus frames, sills, and doors when requested.",
   },
   {
-    icon: Route,
+    icon: Repeat,
     color: "bg-amber-50 border-amber-100 text-amber-700",
     iconBg: "bg-amber-100",
-    title: "Access-aware planning",
-    body: "We account for height, obstructions, entry points, and operating hours before scheduling.",
+    title: "The same scope every visit",
+    body: "Your plan defines the glass, frames, sills, and doors once, so no visit turns into a new negotiation.",
   },
   {
     icon: CalendarDays,
     color: "bg-pg-bg border-cyan-100 text-pg-primary",
     iconBg: "bg-pg-primary/10",
-    title: "Flexible service frequency",
-    body: "Choose a one-time cleaning or a recurring plan based on traffic and exposure.",
+    title: "A frequency that fits the property",
+    body: "Weekly, every other week, or monthly based on your traffic, exposure, and how fast the glass gets dirty.",
   },
   {
-    icon: Building2,
+    icon: Clock,
     color: "bg-slate-50 border-slate-200 text-slate-700",
     iconBg: "bg-slate-100",
-    title: "Built for commercial properties",
-    body: "Window cleaning for storefronts, restaurants, offices, and managed buildings.",
+    title: "Scheduled around your hours",
+    body: "Visits are planned around opening times and peak service so cleaning never competes with customers.",
   },
 ];
 
@@ -53,14 +53,14 @@ export function TrustBadges() {
         <FadeIn>
           <div className="pg-section-header">
             <span className="pg-eyebrow">
-              Why PrimeGlass
+              Why businesses stay on a plan
             </span>
             <h2 className="pg-heading">
-              One window cleaning partner
-              <br className="hidden sm:block" /> for the whole property
+              Built for glass that has to
+              <br className="hidden sm:block" /> look good every day
             </h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-              Size, shape, access, and frequency all belong in the plan—not in the fine print.
+              A recurring plan settles size, shape, access, and frequency once, then repeats it.
             </p>
           </div>
         </FadeIn>

@@ -13,6 +13,7 @@ import { Services } from "@/components/primeglass/services";
 import { StickyCta } from "@/components/primeglass/sticky-cta";
 import { TrustBadges } from "@/components/primeglass/trust-badges";
 import { TrustBar } from "@/components/primeglass/trust-bar";
+import { VisitPlanner } from "@/components/primeglass/visit-planner";
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
         <Hero />
         <TrustBar />
         <Problem />
+        <VisitPlanner />
         <BeforeAfterGallery />
         <TrustBadges />
         <Services />

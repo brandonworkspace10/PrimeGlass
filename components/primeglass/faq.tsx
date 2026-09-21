@@ -68,10 +68,10 @@ export function FAQ() {
                 FAQ
               </span>
               <h2 className="pg-heading">
-                Commercial window cleaning questions
+                Questions before you start a plan
               </h2>
               <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-                Direct answers about window types, access, scheduling, and quotes.
+                Direct answers about frequency, scope, access, and what a quote covers.
               </p>
             </div>
           </FadeIn>
@@ -93,7 +93,7 @@ export function FAQ() {
             <p className="mt-8 text-center text-slate-500 text-sm" style={{ fontFamily: "var(--font-body)" }}>
               Still have questions?{" "}
               <a className="cursor-pointer font-medium text-pg-primary underline underline-offset-2 hover:text-pg-primary-dark" href="#quote">
-                Request a window cleaning quote
+                Get your free cleaning plan
               </a>
             </p>
           </FadeIn>

@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
-  { label: "Results", href: "#results" },
+  { label: "Visit Planner", href: "#visit-plan" },
   { label: "Services", href: "#services" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Plans", href: "#pricing" },
   { label: "Coverage", href: "#coverage" },
 ];
 
@@ -81,7 +81,7 @@ export function Navbar() {
             className="hidden min-h-11 cursor-pointer items-center gap-2 rounded-lg bg-pg-cta px-4 py-2 font-bold text-sm text-white shadow-sm transition-colors duration-200 hover:bg-pg-cta-hover sm:inline-flex"
             href="#quote"
           >
-            Get a Window Cleaning Quote
+            Get My Free Plan
           </a>
 
           <button
@@ -124,7 +124,7 @@ export function Navbar() {
               href="#quote"
               onClick={() => setMenuOpen(false)}
             >
-              Get a Window Cleaning Quote
+              Get My Free Plan
             </a>
           </nav>
         </div>

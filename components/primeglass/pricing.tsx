@@ -8,43 +8,46 @@ function getPlanCtaClass(highlight: boolean) {
 
 const BASE_PLANS = [
   {
-    name: "Storefront & Small Business",
-    description: "For storefronts, restaurants, salons, retail spaces, and small offices.",
+    name: "Every Other Week",
+    visits: "2",
+    description: "Retail shops, offices, salons, and professional spaces on quieter blocks.",
     highlight: false,
     features: [
-      "Street-level windows & doors",
-      "Interior and exterior options",
-      "One-time or recurring service",
-      "Frames and sills by scope",
-      "Scheduling around business hours",
+      "Interior and exterior glass",
+      "Doors, frames, and sills by scope",
+      "Same scope every visit",
+      "Scheduled around your hours",
+      "Re-scoped if the property changes",
     ],
-    note: "Best for individual locations with straightforward access.",
+    note: "Best when glass stays presentable for about two weeks.",
   },
   {
-    name: "Commercial Property",
-    description: "For larger offices, retail locations, restaurants, and managed properties.",
+    name: "Weekly",
+    visits: "4",
+    description: "Restaurants, cafés, delis, clinics, and storefronts with steady daily traffic.",
     highlight: true,
     features: [
-      "Multi-window service scopes",
-      "Lobbies and common-area glass",
-      "Interior and exterior options",
-      "Property-specific access planning",
-      "Recurring schedule options",
+      "Interior and exterior glass",
+      "Doors, frames, and sills by scope",
+      "Same scope every visit",
+      "Scheduled around your hours",
+      "Re-scoped if the property changes",
     ],
-    note: "Best for properties with multiple window areas or service zones.",
+    note: "Best when handprints and street grime return within days.",
   },
   {
-    name: "Large, High & Custom Glass",
-    description: "For oversized panes, elevated windows, façades, and non-standard shapes.",
+    name: "Twice a Week",
+    visits: "8",
+    description: "Busy corners, outdoor dining, and high-volume food service with constant traffic.",
     highlight: false,
     features: [
-      "Oversized and multi-panel glass",
-      "High or hard-to-reach windows",
-      "Custom-shaped and specialty glass",
-      "Access review before scheduling",
-      "Scope based on site conditions",
+      "Interior and exterior glass",
+      "Doors, frames, and sills by scope",
+      "Same scope every visit",
+      "Scheduled around your hours",
+      "Re-scoped if the property changes",
     ],
-    note: "Best for glass that needs additional access or planning.",
+    note: "Best when the glass has to look clean at every service.",
   },
 ];
 
@@ -60,14 +63,15 @@ export function Pricing() {
         <FadeIn>
           <div className="mb-8 text-center">
             <span className="pg-eyebrow">
-              Service options
+              Recurring plans
             </span>
             <h2 className="pg-heading">
-              Window cleaning scoped to your property
+              Pick the rhythm your storefront needs
             </h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-              Commercial window cleaning prices depend on size, shape, access, condition, and
-              frequency. Choose the property type closest to yours to start the quote.
+              Every plan covers the same scope. The only thing that changes is how often we
+              visit. Pricing depends on window count, size, shape, and access, so each plan is
+              quoted for your property.
             </p>
           </div>
         </FadeIn>
@@ -89,7 +93,7 @@ export function Pricing() {
                 >
                   {plan.highlight && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-pg-primary px-3 py-1 font-bold text-white text-xs">
-                      Most Commercial Properties
+                      Most NYC Storefronts
                     </div>
                   )}
 
@@ -102,14 +106,18 @@ export function Pricing() {
                     </p>
 
                     <p className="mb-1 font-bold text-[0.65rem] text-slate-400 uppercase tracking-[0.16em]">
-                      Pricing
+                      Visits per month
                     </p>
                     <p
-                      className={`mb-6 font-extrabold text-2xl ${plan.highlight ? "text-pg-primary" : "text-slate-900"}`}
+                      className={`mb-1 flex items-baseline gap-2 font-extrabold text-4xl tabular-nums ${plan.highlight ? "text-pg-primary" : "text-slate-900"}`}
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
-                      Property-specific quote
+                      {plan.visits}
+                      <span className="font-bold text-base text-slate-400">
+                        quoted for your property
+                      </span>
                     </p>
+                    <div className="mb-6" />
                   </div>
 
                   <div className="flex flex-1 flex-col gap-6 px-6 pb-6">
@@ -131,7 +139,7 @@ export function Pricing() {
                         href="#quote"
                         style={{ fontFamily: "var(--font-heading)" }}
                       >
-                        Get My Quote
+                        Quote This Plan
                         <ArrowRight aria-hidden="true" className="h-4 w-4" />
                       </a>
                       <p className="text-center text-slate-400 text-xs" style={{ fontFamily: "var(--font-body)" }}>
@@ -146,10 +154,22 @@ export function Pricing() {
         </div>
 
         <FadeIn delay={0.4}>
-          <p className="mt-8 text-center text-slate-400 text-sm" style={{ fontFamily: "var(--font-body)" }}>
-            Every quote should define the windows included, interior and exterior work, access
-            requirements, service frequency, and any property-specific constraints.
-          </p>
+          <div className="mt-8 flex flex-col items-center gap-3 text-center">
+            <p className="text-slate-500 text-sm" style={{ fontFamily: "var(--font-body)" }}>
+              Not sure which rhythm fits?{" "}
+              <a
+                className="cursor-pointer font-medium text-pg-primary underline underline-offset-2 hover:text-pg-primary-dark"
+                href="#visit-plan"
+              >
+                Use the visit planner
+              </a>
+            </p>
+            <p className="max-w-2xl text-slate-400 text-sm" style={{ fontFamily: "var(--font-body)" }}>
+              Need a single cleaning instead? We also quote one-time visits for move-ins, events,
+              and post-construction cleanups. Every quote defines the windows included, interior
+              and exterior work, access requirements, and service frequency.
+            </p>
+          </div>
         </FadeIn>
       </div>
     </section>

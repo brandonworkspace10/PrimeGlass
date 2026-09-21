@@ -35,9 +35,10 @@ export function WindowTypes() {
         <FadeIn>
           <div className="pg-section-header">
             <span className="pg-eyebrow">Every size & shape</span>
-            <h2 className="pg-heading">Every window belongs in the plan</h2>
+            <h2 className="pg-heading">No window gets left off the plan</h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-              The fastest path to an accurate quote is showing us what makes your glass unique.
+              Odd shapes and hard-to-reach glass belong in the same recurring visit as the rest
+              of your property.
             </p>
           </div>
         </FadeIn>
@@ -89,7 +90,7 @@ export function WindowTypes() {
               className="cursor-pointer font-medium text-pg-primary underline underline-offset-2 hover:text-pg-primary-dark"
               href="#quote"
             >
-              Request a property-specific quote
+              Get it scoped into your plan
             </a>
           </p>
         </FadeIn>

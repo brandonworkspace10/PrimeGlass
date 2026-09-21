@@ -10,10 +10,10 @@ const BOROUGHS = [
 ];
 
 const QUOTE_PRINCIPLES = [
-  "Window size, shape, height, and access are reflected in the scope",
-  "Interior and exterior work are defined before scheduling",
-  "One-time and recurring service options can be discussed",
-  "Property photos help clarify unusual glass and access conditions",
+  "A recommended visit frequency for your property type and traffic",
+  "Which windows, doors, frames, and sills are included each visit",
+  "Interior and exterior work defined before the first visit",
+  "A price for that plan, with no commitment to request it",
 ];
 
 export function Coverage() {
@@ -26,10 +26,10 @@ export function Coverage() {
               Coverage
             </span>
             <h2 className="pg-heading text-white">
-              Commercial window cleaning across all five boroughs
+              Recurring window cleaning in all five boroughs
             </h2>
             <p className="pg-lede text-slate-300" style={{ fontFamily: "var(--font-body)" }}>
-              Tell us where the property is and what kind of windows you need cleaned.
+              Tell us where the property is and we&rsquo;ll build the schedule around it.
             </p>
           </div>
         </FadeIn>
@@ -67,7 +67,7 @@ export function Coverage() {
         <FadeIn delay={0.5}>
           <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.06)] sm:p-8">
             <h3 className="mb-6 text-center font-bold text-lg text-white" style={{ fontFamily: "var(--font-heading)" }}>
-              What to expect from your quote
+              What you get back
             </h3>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-x-8">
               {QUOTE_PRINCIPLES.map((principle) => (

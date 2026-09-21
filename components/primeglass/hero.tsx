@@ -4,8 +4,8 @@ import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 const TRUST_POINTS = [
-  "Interior & exterior service",
-  "One-time & recurring options",
+  "Weekly, biweekly, or monthly",
+  "Interior & exterior glass",
   "All five boroughs",
 ];
 
@@ -56,7 +56,7 @@ export function Hero() {
             transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.1 }}
           >
             <MapPin aria-hidden="true" className="h-3.5 w-3.5 text-pg-secondary" />
-            Commercial window cleaning across NYC
+            Recurring window cleaning across NYC
           </motion.div>
 
           <motion.h1
@@ -70,11 +70,11 @@ export function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            NYC window cleaning
+            Storefront window
             <br />
-            for every <span className="text-pg-secondary">size</span>
+            cleaning you <span className="text-pg-secondary">never</span>
             <br />
-            and shape.
+            have to rebook.
           </motion.h1>
 
           <motion.p
@@ -88,8 +88,9 @@ export function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            Interior and exterior window cleaning for storefronts, restaurants, offices, and
-            commercial buildings—from everyday panes to oversized and custom-shaped glass.
+            PrimeGlass puts NYC storefronts, restaurants, and offices on a recurring cleaning
+            schedule, so the first thing your customers see is always clear glass. Every size and
+            shape, inside and out.
           </motion.p>
 
           <motion.div
@@ -103,14 +104,14 @@ export function Hero() {
               href="#quote"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Get My Window Cleaning Quote
+              Get My Free Cleaning Plan
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </a>
             <a
               className="pg-button-secondary text-sm sm:text-base"
-              href="#pricing"
+              href="#visit-plan"
             >
-              View Service Options
+              How often do my windows need it?
             </a>
           </motion.div>
 
