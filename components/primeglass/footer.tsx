@@ -3,14 +3,15 @@ import { AppWindow, MapPin } from "lucide-react";
 const LINKS: Record<string, { label: string; href: string }[]> = {
   Services: [
     { label: "Storefront windows", href: "#services" },
-    { label: "Offices & commercial buildings", href: "#services" },
-    { label: "Large & hard-to-reach glass", href: "#window-types" },
+    { label: "Lobby & entrance glass", href: "#services" },
+    { label: "Oversized & obstructed glass", href: "#window-types" },
     { label: "Custom-shaped glass", href: "#window-types" },
   ],
-  "Service options": [
-    { label: "Storefront & small business", href: "#pricing" },
-    { label: "Commercial properties", href: "#pricing" },
-    { label: "Large & custom glass", href: "#pricing" },
+  "Recurring plans": [
+    { label: "Twice a week", href: "#pricing" },
+    { label: "Weekly", href: "#pricing" },
+    { label: "Every other week", href: "#pricing" },
+    { label: "Visit planner", href: "#visit-plan" },
   ],
   Coverage: [
     { label: "Manhattan", href: "#coverage" },
@@ -83,7 +84,7 @@ export function Footer() {
             © {new Date().getFullYear()} PrimeGlass. All rights reserved.
           </p>
           <p className="text-slate-600 text-xs" style={{ fontFamily: "var(--font-body)" }}>
-            Window cleaning for storefronts, offices & commercial buildings
+            Recurring window cleaning for NYC business fronts
           </p>
         </div>
       </div>

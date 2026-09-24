@@ -2,7 +2,7 @@ export const SITE_URL = "https://primeglassnyc.com";
 export const SITE_NAME = "PrimeGlass";
 export const SITE_TITLE = "NYC Storefront Window Cleaning on a Schedule | PrimeGlass";
 export const SITE_DESCRIPTION =
-  "Recurring window cleaning for NYC storefronts, restaurants, and offices. Get a free visit-frequency recommendation and a plan quoted for your property.";
+  "Recurring window cleaning for NYC storefronts, restaurants, and street-level businesses. Get a free visit-frequency recommendation and a plan quoted for your front.";
 
 export const BOROUGHS = [
   "Manhattan",
@@ -16,7 +16,7 @@ export const FAQ_ITEMS = [
   {
     question: "How often should my storefront windows be cleaned?",
     answer:
-      "Most NYC storefronts land between weekly and every other week. Restaurants, cafés, delis, and clinics usually need weekly visits because food service and constant entry traffic mark the glass within days. Retail shops, salons, and offices on quieter blocks often hold up on an every-other-week plan. Busy corners with outdoor dining or heavy foot traffic sometimes need twice-weekly visits, while sheltered entrances and low-traffic properties can work on a monthly schedule.",
+      "Most NYC storefronts land between weekly and every other week. Restaurants, cafés, delis, and clinics usually need weekly visits because food service and constant entry traffic mark the glass within days. Retail shops, salons, and lobbies on quieter blocks often hold up on an every-other-week plan. Busy corners with outdoor dining or heavy foot traffic sometimes need twice-weekly visits, while sheltered entrances and low-traffic fronts can work on a monthly schedule.",
   },
   {
     question: "What does a recurring window cleaning plan include?",
@@ -36,12 +36,12 @@ export const FAQ_ITEMS = [
   {
     question: "Does PrimeGlass clean windows of every size and shape?",
     answer:
-      "Yes. PrimeGlass plans commercial window cleaning around the glass on your property, including standard storefront panes, oversized windows, multi-panel façades, and custom-shaped glass. We review access and site conditions before scheduling the work.",
+      "Yes. PrimeGlass plans window cleaning around the glass on your business front, including standard storefront panes, full-height display windows, multi-panel fronts, transoms, entry doors, and custom-shaped glass. We review access and site conditions before scheduling the work.",
   },
   {
     question: "What types of properties does PrimeGlass serve?",
     answer:
-      "PrimeGlass cleans windows for storefronts, restaurants, retail spaces, offices, commercial buildings, and managed properties throughout New York City.",
+      "PrimeGlass focuses on street-level business fronts across New York City: storefronts, restaurants, cafés, delis, retail shops, salons, gyms, clinics, showrooms, and ground-floor office and building lobbies. We do not take on upper-floor façade or high-rise window work.",
   },
   {
     question: "Do you clean both interior and exterior windows?",
@@ -49,14 +49,14 @@ export const FAQ_ITEMS = [
       "Yes. Interior and exterior window cleaning can be included in the same service plan. Your quote will define the glass, frames, sills, doors, and access areas included in the work.",
   },
   {
-    question: "Can you clean high or hard-to-reach windows?",
+    question: "Can you clean tall or hard-to-reach storefront glass?",
     answer:
-      "PrimeGlass evaluates elevated, oversized, and hard-to-reach glass individually. Share photos or access details with your quote request so we can determine the right approach for the property.",
+      "Yes, within the ground floor. Full-height display panes, transoms above the door, and glass blocked by awnings, gates, or scaffolding are all assessed individually. Share photos or access details with your request so we can plan the right approach. We do not clean upper-floor or high-rise façade glass.",
   },
   {
     question: "How much does commercial window cleaning cost in NYC?",
     answer:
-      "Commercial window cleaning prices depend on the number and size of windows, glass shape, interior and exterior access, building height, visit frequency, and current condition. PrimeGlass quotes each plan for the specific property, so the same cadence costs differently on a small storefront than on a multi-window building.",
+      "Prices depend on the number and size of windows, glass shape, interior and exterior access, obstructions like awnings or gates, visit frequency, and current condition. PrimeGlass quotes each plan for the specific front, so the same cadence costs differently on a single-door shop than on a wide multi-panel storefront.",
   },
   {
     question: "What information helps you prepare an accurate quote?",

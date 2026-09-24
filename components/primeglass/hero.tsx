@@ -13,9 +13,10 @@ const BUSINESS_TYPES = [
   "Storefronts",
   "Restaurants",
   "Retail",
-  "Offices",
-  "Commercial Buildings",
-  "Managed Properties",
+  "Cafés & Delis",
+  "Salons & Gyms",
+  "Clinics",
+  "Lobbies",
 ];
 
 export function Hero() {
@@ -88,9 +89,9 @@ export function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            PrimeGlass puts NYC storefronts, restaurants, and offices on a recurring cleaning
-            schedule, so the first thing your customers see is always clear glass. Every size and
-            shape, inside and out.
+            PrimeGlass puts NYC storefronts, restaurants, and street-level businesses on a
+            recurring cleaning schedule, so the first thing your customers see is always clear
+            glass. Every size and shape, inside and out.
           </motion.p>
 
           <motion.div
@@ -140,7 +141,7 @@ export function Hero() {
           transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.75 }}
         >
           <p className="mb-4 font-medium text-white/50 text-xs uppercase tracking-widest">
-            Properties we serve
+            Business fronts we serve
           </p>
           <div className="flex flex-wrap gap-2">
             {BUSINESS_TYPES.map((type) => (

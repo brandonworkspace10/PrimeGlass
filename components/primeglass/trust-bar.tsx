@@ -5,7 +5,7 @@ const BOROUGHS = ["Manhattan", "Brooklyn", "Queens", "The Bronx", "Staten Island
 const CADENCES = [
   { value: "2x weekly", label: "Busy corners, outdoor dining, heavy traffic" },
   { value: "Weekly", label: "Most storefronts, restaurants, and food service" },
-  { value: "Biweekly", label: "Retail, offices, and professional spaces" },
+  { value: "Biweekly", label: "Retail, salons, and quieter blocks" },
   { value: "Monthly", label: "Sheltered entrances and low-traffic glass" },
 ];
 

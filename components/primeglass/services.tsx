@@ -1,4 +1,4 @@
-import { ArrowUpRight, Building2, ScanLine, Shapes, Store } from "lucide-react";
+import { ArrowUpRight, DoorOpen, ScanLine, Shapes, Store } from "lucide-react";
 import { FadeIn } from "./fade-in";
 
 const SERVICES = [
@@ -19,32 +19,32 @@ const SERVICES = [
     linkLabel: "Quote My Storefront",
   },
   {
-    icon: Building2,
+    icon: DoorOpen,
     color: "bg-violet-50 border-violet-100",
     iconColor: "bg-violet-100 text-violet-700",
-    tagline: "Multi-window properties",
-    title: "Office & Commercial Buildings",
-    body: "Create a practical cleaning plan for offices, restaurants, retail spaces, and managed commercial properties.",
+    tagline: "Ground-floor entrances",
+    title: "Lobby & Entrance Glass",
+    body: "Keep the ground-floor entrance of an office or building looking sharp for everyone who walks in.",
     details: [
-      "Lobbies & common areas",
-      "Interior partitions",
-      "Exterior building glass",
-      "Property-specific scheduling",
+      "Lobby and vestibule glass",
+      "Entry doors and side panels",
+      "Interior and exterior options",
+      "Scheduled around business hours",
     ],
     href: "#quote",
-    linkLabel: "Quote My Property",
+    linkLabel: "Quote My Entrance",
   },
   {
     icon: ScanLine,
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "bg-emerald-100 text-emerald-700",
-    tagline: "Complex access",
-    title: "Large & Hard-to-Reach Windows",
-    body: "We assess oversized, elevated, and obstructed glass before recommending the right service approach.",
+    tagline: "Awkward access",
+    title: "Oversized & Obstructed Glass",
+    body: "Tall storefront panes, transoms above the door, and glass blocked by awnings or scaffolding.",
     details: [
-      "Oversized panes",
-      "Multi-story glass",
-      "Awning & setback access",
+      "Full-height display panes",
+      "Transoms and upper storefront glass",
+      "Awning, gate & scaffold access",
       "Site review before scheduling",
     ],
     href: "#window-types",
@@ -82,8 +82,8 @@ export function Services() {
               <br className="hidden sm:block" /> pane on your property
             </h2>
             <p className="pg-lede" style={{ fontFamily: "var(--font-body)" }}>
-              Storefront glass, office windows, oversized façades, and custom shapes all scoped
-              into the same recurring visit.
+              Display windows, entry doors, transoms, and custom shapes all scoped into the same
+              recurring visit.
             </p>
           </div>
         </FadeIn>

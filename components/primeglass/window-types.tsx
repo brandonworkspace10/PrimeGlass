@@ -15,8 +15,8 @@ const OPTIONS = [
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "bg-emerald-100 text-emerald-700",
     title: "Oversized & Multi-Panel Glass",
-    body: "Large panes and broad commercial façades are quoted around dimensions, elevation, surrounding obstacles, and safe access.",
-    note: "Helpful details: approximate dimensions, height, obstacles, and photos",
+    body: "Full-height display panes and wide multi-panel fronts are quoted around dimensions, obstructions, and how we can safely reach them.",
+    note: "Helpful details: approximate dimensions, obstructions, and photos",
   },
   {
     icon: Shapes,

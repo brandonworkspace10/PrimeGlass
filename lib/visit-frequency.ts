@@ -1,11 +1,13 @@
 /**
  * Recommends a starting visit frequency for a recurring window cleaning plan.
  *
- * The model is a base cadence per property type, adjusted by the three factors
- * that drive how fast street-level glass stops looking clean: how many people
- * pass and touch it, how exposed it is to road grime, and whether the entrance
- * is handled constantly. The result is a starting point for a quote, not a
- * fixed rule — the final cadence is confirmed after reviewing the property.
+ * Scope is street-level business fronts in NYC, so every profile here is
+ * ground-floor customer-facing glass. The model is a base cadence per property
+ * type, adjusted by the three factors that drive how fast that glass stops
+ * looking clean: how many people pass and touch it, how exposed it is to road
+ * grime, and whether the entrance is handled constantly. The result is a
+ * starting point for a quote, not a fixed rule — the final cadence is
+ * confirmed after reviewing the property.
  */
 
 export type FootTraffic = "high" | "medium" | "low";
@@ -58,15 +60,9 @@ export const PROPERTY_PROFILES: PropertyProfile[] = [
   },
   {
     id: "showroom",
-    label: "Showroom, gallery, or dealership",
+    label: "Showroom or gallery",
     baseVisits: 2,
     driver: "Large display glass shows streaks and dust clearly under showroom lighting.",
-  },
-  {
-    id: "warehouse",
-    label: "Warehouse or industrial",
-    baseVisits: 1,
-    driver: "Glass is mostly functional rather than customer-facing, so buildup matters less.",
   },
 ];
 

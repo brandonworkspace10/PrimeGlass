@@ -10,7 +10,7 @@ const BASE_PLANS = [
   {
     name: "Every Other Week",
     visits: "2",
-    description: "Retail shops, offices, salons, and professional spaces on quieter blocks.",
+    description: "Retail shops, salons, lobbies, and showrooms on quieter blocks.",
     highlight: false,
     features: [
       "Interior and exterior glass",

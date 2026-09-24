@@ -53,18 +53,20 @@ const BOROUGHS = ["Manhattan", "Brooklyn", "Queens", "The Bronx", "Staten Island
 
 const PROPERTY_TYPES = [
   "Storefront",
-  "Restaurant",
-  "Retail",
-  "Office building",
-  "Commercial building / property management",
-  "Real estate listing",
-  "Other",
+  "Restaurant, café, or bar",
+  "Retail shop or boutique",
+  "Grocery, bodega, or deli",
+  "Salon, barbershop, or gym",
+  "Medical, dental, or clinic",
+  "Office or building lobby",
+  "Showroom or gallery",
+  "Other street-level business",
 ];
 
 const SIZES = [
   { value: "small", label: "Small (1–8 panes)" },
   { value: "medium", label: "Medium (9–20 panes)" },
-  { value: "large", label: "Large (21+ panes or multi-story)" },
+  { value: "large", label: "Large (21+ panes)" },
   { value: "custom", label: "Custom-shaped / specialty glass" },
 ];
 

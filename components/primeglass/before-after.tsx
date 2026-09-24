@@ -21,8 +21,8 @@ const PAIRS: Pair[] = [
     alt: "Restaurant storefront with large, clear display windows",
   },
   {
-    label: "Office Building",
-    businessType: "Floor-to-ceiling commercial glass",
+    label: "Office Lobby",
+    businessType: "Floor-to-ceiling entrance glass",
     borough: "Manhattan-style streetscape",
     src: "/images/primeglass-office-clean.png",
     alt: "Modern office lobby behind clean floor-to-ceiling windows",
